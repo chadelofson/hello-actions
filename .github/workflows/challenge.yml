@@ -1,0 +1,40 @@
+name: Challege
+on: push
+
+jobs:
+  job1:
+    name: Windows job
+    runs-on: windows-latest
+    steps:
+      - name: Windows Step1
+        uses: actions/checkout@v2
+      - name: Windows Step2
+        run: "Get-ChildrenItem Env: | Sort-Object Name"
+
+  job2:
+    name: Ubuntu Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ubuntu Step1
+        uses: actions/checkout@v2
+      - name: Ubuntu Step2
+        run: env | sort
+
+  job3:
+    name: MacOS Job
+    runs-on: macos-latest
+    steps:
+      - name: MacOS Step1
+        uses: actions/checkout@v2
+      - name: MacOS Step2
+        run: env | sort
+
+  job4:
+    name: Post job
+    needs: [job1, job2, job3]
+    steps:
+      - name: Job4 Task
+        run: echo finished
+
+    
+
