@@ -9,7 +9,7 @@ jobs:
       - name: Windows Step1
         uses: actions/checkout@v2
       - name: Windows Step2
-        run: "Get-ChildrenItem Env: | Sort-Object Name"
+        run: "Get-ChildItem Env: | Sort-Object Name"
 
   job2:
     name: Ubuntu Job
